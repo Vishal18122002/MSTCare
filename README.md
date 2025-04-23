@@ -37,7 +37,7 @@ This project automates the Prior Authorization (PA) workflow to enhance the spee
 
 ---
 
-# 📸 Demo Video Link: https://drive.google.com/file/d/1PQXxqNaCuJNl6iEUXFefjlru0cdyLWtI/view?usp=sharing
+📸 Demo Video Link: https://drive.google.com/file/d/1PQXxqNaCuJNl6iEUXFefjlru0cdyLWtI/view?usp=sharing
 
 
 ⸻
@@ -66,4 +66,3 @@ MIT License © 2025 Vishal
 
 ---
 
-Let me know if you'd like this customized further, such as with badges, deployment instructions, or Flask routes documentation!
