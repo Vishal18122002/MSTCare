@@ -37,9 +37,7 @@ This project automates the Prior Authorization (PA) workflow to enhance the spee
 
 ---
 
-## 📸 Demo Video
-
-# Link: https://drive.google.com/file/d/1PQXxqNaCuJNl6iEUXFefjlru0cdyLWtI/view?usp=sharing
+# 📸 Demo Video Link: https://drive.google.com/file/d/1PQXxqNaCuJNl6iEUXFefjlru0cdyLWtI/view?usp=sharing
 
 
 ⸻
