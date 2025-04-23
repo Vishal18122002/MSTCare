@@ -1,0 +1,814 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>Edit Patient - MSTcare</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+      }
+    </style>
+    <link rel="icon" href="./logo.png" type="image/png" class="rounded-lg" />
+  </head>
+  <body class="flex bg-white text-gray-800">
+    <!-- Sidebar -->
+    <aside class="flex flex-col bg-slate-700 w-64 h-[100%] px-6 py-8">
+      <div class="flex items-center mb-7">
+        <img
+          alt="HospitalRun logo plus icon in green"
+          class="w-7 h-6 mr-3 rounded-3xl"
+          height="24"
+          src="./logo.png"
+          width="32"
+        />
+        <span class="text-white font-semibold text-2xl leading-none">
+          <span class="text-[#3cb371]">+</span>MST<span class="text-[#3cb371]"
+            >care</span
+          >
+        </span>
+        <button
+          aria-label="Settings"
+          class="ml-auto text-white hover:text-[#3cb371] focus:outline-none"
+        >
+          <i class="fas fa-cog text-lg"></i>
+        </button>
+      </div>
+      <div class="relative mb-8">
+        <input
+          class="w-full rounded-md px-4 py-3 text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#3cb371]"
+          placeholder="Search"
+          type="search"
+        />
+        <button
+          aria-label="Search"
+          class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-[#3cb371]"
+        >
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+      <nav class="flex flex-col space-y-5 text-gray-200 text-lg font-normal">
+        <a
+          class="flex items-center space-x-4 text-teal-400 cursor-pointer transition-colors duration-200"
+          href="#"
+        >
+          <i class="fas fa-user-injured w-6"></i>
+          <span>Patients</span>
+        </a>
+        <a
+          class="flex items-center space-x-4 cursor-pointer transition-colors duration-200 hover:text-teal-400"
+          href="#"
+        >
+          <i class="fas fa-box-open w-6"></i>
+          <span>Inventory</span>
+        </a>
+        <a
+          class="flex items-center space-x-4 hover:text-white cursor-pointer transition-colors duration-200"
+          href="#"
+        >
+          <i class="fas fa-calendar-alt w-6"></i>
+          <span>Scheduling</span>
+        </a>
+        <a
+          class="flex items-center space-x-4 hover:text-white cursor-pointer transition-colors duration-200"
+          href="#"
+        >
+          <i class="fas fa-camera w-6"></i>
+          <span>Imaging</span>
+        </a>
+        <a
+          class="flex items-center space-x-4 hover:text-white cursor-pointer transition-colors duration-200"
+          href="#"
+        >
+          <i class="fas fa-pills w-6"></i>
+          <span>Medication</span>
+        </a>
+        <a
+          class="flex items-center space-x-4 hover:text-white cursor-pointer transition-colors duration-200"
+          href="#"
+        >
+          <i class="fas fa-file-alt w-6"></i>
+          <span>Labs</span>
+        </a>
+        <a
+          class="flex items-center space-x-4 hover:text-white cursor-pointer transition-colors duration-200"
+          href="#"
+        >
+          <i class="fas fa-file-invoice-dollar w-6"></i>
+          <span>Billing</span>
+        </a>
+        <a
+          class="flex items-center space-x-4 hover:text-white cursor-pointer transition-colors duration-200"
+          href="#"
+        >
+          <i class="fas fa-exclamation-triangle w-6"></i>
+          <span>Incident</span>
+        </a>
+        <a
+          class="flex items-center space-x-4 hover:text-white cursor-pointer transition-colors duration-200"
+          href="#"
+        >
+          <i class="fas fa-user-cog w-6"></i>
+          <span>Administration</span>
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Main content -->
+    <main class="flex-1 p-10 hidden bg-gray-100" id="main_content">
+      <header class="flex justify-between items-center mb-10">
+        <h1 class="text-3xl font-semibold text-gray-900 leading-tight">
+          Edit Patient
+        </h1>
+        <button
+          class="text-[#3cb371] border border-[#3cb371] rounded-md px-4 py-2 text-base font-medium hover:bg-[#3cb371] hover:text-white transition"
+        >
+          + new patient
+        </button>
+      </header>
+
+      <section
+        class="bg-white rounded-lg shadow-md p-8 overflow-y-auto max-h-[80vh]"
+      >
+        <div class="flex justify-between items-start mb-10">
+          <div
+            class="space-y-3 text-gray-700 text-base leading-relaxed w-[30%]"
+          >
+            <p class="flex justify-between">
+              <span class="font-normal">Name :</span>
+              <span class="font-semibold ml-2">Sharon J Reis</span>
+            </p>
+            <p class="flex justify-between">
+              <span class="font-normal">Sex :</span>
+              <span class="ml-2">Female</span>
+            </p>
+            <div class="flex justify-between gap-8">
+              <span class="font-normal">DOB :</span>
+              <div>1/14/1963</div>
+            </div>
+            <p class="flex justify-between">
+              <span> Primary Diagnoses :</span>
+              <button
+                class="text-[#3cb371] ml-2 font-normal hover:underline"
+                type="button"
+              >
+                + Add Diagnosis
+              </button>
+            </p>
+            <p class="flex justify-between">
+              <span> Patient Allergies :</span>
+              <button
+                class="text-[#3cb371] ml-2 font-normal hover:underline"
+                type="button"
+              >
+                + Add Allergy
+              </button>
+            </p>
+            <p class="flex justify-between">
+              Operative Plan :
+              <button
+                class="text-[#3cb371] ml-2 font-normal hover:underline"
+                type="button"
+              >
+                + Add Operative Plan
+              </button>
+            </p>
+            <p class="flex justify-between">
+              <span> Prior Authorization :</span>
+              <button
+                class="text-[#3cb371] ml-2 font-normal hover:underline"
+                type="button"
+                onclick="location.href='./insurance_login.html'"
+                id="auth"
+              >
+                + Authorization
+              </button>
+            </p>
+          </div>
+          <div
+            class="bg-gray-100 text-gray-600 text-lg font-light px-6 py-3 rounded select-none min-w-[120px] text-center"
+          >
+            Id
+            <span class="font-normal ml-2">P01454</span>
+          </div>
+        </div>
+
+        <hr class="border-gray-300 mb-10" />
+
+        <!-- Tabs -->
+        <div
+          class="flex flex-wrap gap-x-8 gap-y-3 text-gray-600 text-base font-normal border-b border-gray-300 mb-10"
+        >
+          <button
+            class="pb-3 border-b-2 border-gray-700 font-semibold"
+            type="button"
+            id="nav_his"
+          >
+            History
+          </button>
+          <button
+            aria-current="page"
+            class="pb-3 border-b-2 border-transparent hover:border-gray-400 transition-colors duration-200"
+            type="button"
+            id="nav_general"
+            onclick="general()"
+          >
+            General
+          </button>
+          <button
+            class="pb-3 border-b-2 border-transparent hover:border-gray-400 transition-colors duration-200"
+            type="button"
+          >
+            Photos
+          </button>
+          <button
+            class="pb-3 border-b-2 border-transparent hover:border-gray-400 transition-colors duration-200"
+            type="button"
+          >
+            Appointments
+          </button>
+          <button
+            class="pb-3 border-b-2 border-transparent hover:border-gray-400 transition-colors duration-200"
+            type="button"
+          >
+            Visits
+          </button>
+          <button
+            class="pb-3 border-b-2 border-transparent hover:border-gray-400 transition-colors duration-200"
+            type="button"
+          >
+            Medication
+          </button>
+          <button
+            class="pb-3 border-b-2 border-transparent hover:border-gray-400 transition-colors duration-200"
+            type="button"
+          >
+            Imaging
+          </button>
+          <button
+            class="pb-3 border-b-2 border-transparent hover:border-gray-400 transition-colors duration-200"
+            type="button"
+          >
+            Labs
+          </button>
+          <button
+            class="pb-3 border-b-2 border-transparent hover:border-gray-400 transition-colors duration-200"
+            type="button"
+          >
+            Social Work
+          </button>
+        </div>
+
+        <!-- Form -->
+        <form action="" id="history" class="">
+          <div class="flex justify-between mb-20">
+            <div>No History available</div>
+            <div>
+              <button
+                class="bg-sky-600 text-white p-2 rounded-xl py-3 text-semibold"
+              >
+                + New Note
+              </button>
+            </div>
+          </div>
+          <div class="flex ml-[85%] gap-4">
+            <button
+              class="bg-green-600 text-white p-2 rounded-xl text-semibold"
+            >
+              Return
+            </button>
+            <button class="bg-sky-600 text-white p-2 rounded-xl text-semibold">
+              Update
+            </button>
+          </div>
+        </form>
+        <form
+          class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 text-gray-700 text-base hidden"
+          id="general"
+        >
+          <div>
+            <label class="block font-semibold mb-2" for="firstName"
+              >First Name <span class="text-red-600">*</span></label
+            >
+            <input
+              class="w-full border border-gray-300 rounded-md px-4 py-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#3cb371]"
+              id="firstName"
+              type="text"
+              value="Sharon"
+            />
+          </div>
+          <div>
+            <label class="block font-semibold mb-2" for="patientStatus"
+              >Patient Status</label
+            >
+            <input
+              class="w-full border border-gray-300 rounded-md px-4 py-3 text-gray-700 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[#3cb371]"
+              id="patientStatus"
+              type="text"
+              value="Married"
+            />
+          </div>
+          <div>
+            <label class="block mb-2" for="middleName">Middle Name</label>
+            <input
+              class="w-full border border-gray-300 rounded-md px-4 py-3 text-gray-700 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[#3cb371]"
+              id="middleName"
+              type="text"
+              value="J"
+            />
+          </div>
+          <div>
+            <label class="block mb-2" for="externalPatientId"
+              >External Patient Id</label
+            >
+            <input
+              class="w-full border border-gray-300 rounded-md px-4 py-3 text-gray-700 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[#3cb371]"
+              id="externalPatientId"
+              type="text"
+            />
+          </div>
+          <div>
+            <label class="block font-semibold mb-2" for="lastName"
+              >Last Name <span class="text-red-600">*</span></label
+            >
+            <input
+              class="w-full border border-gray-300 rounded-md px-4 py-3 text-gray-700 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[#3cb371]"
+              id="lastName"
+              type="text"
+              value="Reis"
+            />
+          </div>
+          <div>
+            <label class="block mb-2" for="bloodType">Blood Type</label>
+            <select
+              class="w-full border border-gray-300 rounded-md px-4 py-3 text-gray-700 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[#3cb371]"
+              id="bloodType"
+            >
+              <option>A+</option>
+              <option>A-</option>
+              <option>B+</option>
+              <option>B-</option>
+              <option>AB+</option>
+              <option>AB-</option>
+              <option>O+</option>
+              <option>O-</option>
+            </select>
+          </div>
+          <div>
+            <label class="block mb-2" for="sex">Sex</label>
+            <input
+              class="w-full border border-gray-300 rounded-md px-4 py-3 text-gray-700 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[#3cb371]"
+              id="sex"
+              type="text"
+              value="Female"
+            />
+          </div>
+          <div>
+            <label class="block mb-2" for="clinicSite">Clinic Site</label>
+            <input
+              class="w-full border border-gray-300 rounded-md px-4 py-3 text-gray-700 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[#3cb371]"
+              id="clinicSite"
+              type="text"
+            />
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <div class="flex-1 p-10  bg-gray-100" id="list">
+      <header class="flex justify-between items-center mb-10">
+        <h1 class="text-3xl font-semibold text-gray-900 leading-tight">
+          Patients List
+        </h1>
+        <button
+          class="text-[#3cb371] border border-[#3cb371] rounded-md px-4 py-2 text-base font-medium hover:bg-[#3cb371] hover:text-white transition"
+        >
+          + new patient
+        </button>
+      </header>
+      <section
+        class="bg-white rounded-lg shadow-md p-6 overflow-y-auto max-h-[80vh]"
+      >
+        <table
+          class="min-w-full divide-y divide-gray-300 border border-gray-200"
+        >
+          <thead class="bg-sky-900">
+            <tr class="text-center text-white">
+              <th
+                class="px-6 py-3 text-sm font-semibold uppercase tracking-wider border-r border-gray-300"
+              >
+                ID
+              </th>
+              <th
+                class="px-6 py-3 text-sm font-semibold uppercase tracking-wider border-r border-gray-300"
+              >
+                Name
+              </th>
+              <th
+                class="px-6 py-3 text-sm font-semibold uppercase tracking-wider border-r border-gray-300"
+              >
+                Doctor
+              </th>
+              <th
+                class="px-6 py-3 text-sm font-semibold uppercase tracking-wider"
+              >
+                Actions
+              </th>
+            </tr>
+          </thead>
+          <tbody
+            class="divide-y divide-gray-200 text-sm text-gray-800 text-center"
+          >
+            <!-- Patient Row Example -->
+            <tr class="hover:bg-sky-100 transition " id="hover">
+              <td class="px-6 py-4 border-r border-gray-200">001</td>
+              <td class="px-6 py-4 font-medium border-r border-gray-200">
+                Sharon J Reis
+              </td>
+              <td class="px-6 py-4 border-r border-gray-200">Dr. Smith</td>
+              <td class="px-6 py-4 flex justify-evenly">
+                <button
+                class="p-2 rounded-full text-blue-600 hover:bg-sky-900 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 transition"                  onclick="edit_patient()"
+                  id="edit"
+                >
+                  <i class="fas fa-pen"></i>
+                </button>
+                <button
+                  class="p-2 rounded-full text-red-600 hover:bg-red-100 hover:text-red-800 transition"
+                >
+                  <i class="fas fa-trash"></i>
+                </button>
+              </td>
+            </tr>
+
+            <tr class="hover:bg-sky-100 transition ">
+              <td class="px-6 py-4 border-r border-gray-200">002</td>
+              <td class="px-6 py-4 font-medium border-r border-gray-200">
+                Emily Carter
+              </td>
+              <td class="px-6 py-4 border-r border-gray-200">Dr. Adams</td>
+              <td class="px-6 py-4 flex justify-evenly">
+                <!-- Edit Button -->
+                <button
+                  class="p-2 rounded-full text-blue-600 hover:bg-blue-100 hover:text-blue-800 transition"
+                >
+                  <i class="fas fa-pen"></i>
+                </button>
+                <button
+                  class="p-2 rounded-full text-red-600 hover:bg-red-100 hover:text-red-800 transition"
+                >
+                  <i class="fas fa-trash"></i>
+                </button>
+              </td>
+            </tr>
+
+            <tr class="hover:bg-sky-100 transition " id="hover_2" >
+              <td class="px-6 py-4 border-r border-gray-200">003</td>
+              <td class="px-6 py-4 font-medium border-r border-gray-200">
+                John Doe
+              </td>
+              <td class="px-6 py-4 border-r border-gray-200">Dr. Smith</td>
+              <td class="px-6 py-4 flex justify-evenly">
+                <!-- Edit Button -->
+                <button
+                class="p-2 rounded-full text-blue-600 hover:bg-sky-900 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 transition"                  onclick="edit_patient_2()"
+                  id="edit_2"
+                >
+                  <i class="fas fa-pen"></i>
+                </button>
+                <button
+                  class="p-2 rounded-full text-red-600 hover:bg-red-100 hover:text-red-800 transition"
+                >
+                  <i class="fas fa-trash"></i>
+                </button>
+              </td>
+            </tr>
+
+            <!-- More rows as needed -->
+          </tbody>
+        </table>
+      </section>
+    </div>
+    
+    <main class="flex-1 p-10 hidden bg-gray-100" id="sub_content">
+        <header class="flex justify-between items-center mb-10">
+          <h1 class="text-3xl font-semibold text-gray-900 leading-tight">
+            Edit Patient
+          </h1>
+          <button
+            class="text-[#3cb371] border border-[#3cb371] rounded-md px-4 py-2 text-base font-medium hover:bg-[#3cb371] hover:text-white transition"
+          >
+            + new patient
+          </button>
+        </header>
+  
+        <section
+          class="bg-white rounded-lg shadow-md p-8 overflow-y-auto max-h-[80vh]"
+        >
+          <div class="flex justify-between items-start mb-10">
+            <div
+              class="space-y-3 text-gray-700 text-base leading-relaxed w-[30%]"
+            >
+              <p class="flex justify-between">
+                <span class="font-normal">Name :</span>
+                <span class="font-semibold ml-2">John Doe</span>
+              </p>
+              <p class="flex justify-between">
+                <span class="font-normal">Sex :</span>
+                <span class="ml-2">Male</span>
+              </p>
+              <div class="flex justify-between gap-8">
+                <span class="font-normal">DOB :</span>
+                <div>1/14/1983</div>
+              </div>
+              <p class="flex justify-between">
+                <span> Primary Diagnoses :</span>
+                <button
+                  class="text-[#3cb371] ml-2 font-normal hover:underline"
+                  type="button"
+                >
+                  + Add Diagnosis
+                </button>
+              </p>
+              <p class="flex justify-between">
+                <span> Patient Allergies :</span>
+                <button
+                  class="text-[#3cb371] ml-2 font-normal hover:underline"
+                  type="button"
+                >
+                  + Add Allergy
+                </button>
+              </p>
+              <p class="flex justify-between">
+                Operative Plan :
+                <button
+                  class="text-[#3cb371] ml-2 font-normal hover:underline"
+                  type="button"
+                >
+                  + Add Operative Plan
+                </button>
+              </p>
+              <p class="flex justify-between">
+                <span> Prior Authorization :</span>
+                <button
+                  class="text-[#3cb371] ml-2 font-normal hover:underline"
+                  type="button"
+                  onclick="location.href='./insurance_login.html'"
+                  id="auth_2"
+                >
+                  + Authorization
+                </button>
+              </p>
+            </div>
+            <div
+              class="bg-gray-100 text-gray-600 text-lg font-light px-6 py-3 rounded select-none min-w-[120px] text-center"
+            >
+              Id
+              <span class="font-normal ml-2">P01370</span>
+            </div>
+          </div>
+  
+          <hr class="border-gray-300 mb-10" />
+  
+          <!-- Tabs -->
+          <div
+            class="flex flex-wrap gap-x-8 gap-y-3 text-gray-600 text-base font-normal border-b border-gray-300 mb-10"
+          >
+            <button
+              class="pb-3 border-b-2 border-gray-700 font-semibold"
+              type="button"
+              id="nav_his_2"
+            >
+              History
+            </button>
+            <button
+              aria-current="page"
+              class="pb-3 border-b-2 border-transparent hover:border-gray-400 transition-colors duration-200"
+              type="button"
+              id="nav_general_2"
+              onclick="general_2()"
+            >
+              General
+            </button>
+            <button
+              class="pb-3 border-b-2 border-transparent hover:border-gray-400 transition-colors duration-200"
+              type="button"
+            >
+              Photos
+            </button>
+            <button
+              class="pb-3 border-b-2 border-transparent hover:border-gray-400 transition-colors duration-200"
+              type="button"
+            >
+              Appointments
+            </button>
+            <button
+              class="pb-3 border-b-2 border-transparent hover:border-gray-400 transition-colors duration-200"
+              type="button"
+            >
+              Visits
+            </button>
+            <button
+              class="pb-3 border-b-2 border-transparent hover:border-gray-400 transition-colors duration-200"
+              type="button"
+            >
+              Medication
+            </button>
+            <button
+              class="pb-3 border-b-2 border-transparent hover:border-gray-400 transition-colors duration-200"
+              type="button"
+            >
+              Imaging
+            </button>
+            <button
+              class="pb-3 border-b-2 border-transparent hover:border-gray-400 transition-colors duration-200"
+              type="button"
+            >
+              Labs
+            </button>
+            <button
+              class="pb-3 border-b-2 border-transparent hover:border-gray-400 transition-colors duration-200"
+              type="button"
+            >
+              Social Work
+            </button>
+          </div>
+  
+          <!-- Form -->
+          <form action="" id="history_2" class="">
+            <div class="flex justify-between mb-20">
+              <div>No History available</div>
+              <div>
+                <button
+                  class="bg-sky-600 text-white p-2 rounded-xl py-3 text-semibold"
+                >
+                  + New Note
+                </button>
+              </div>
+            </div>
+            <div class="flex ml-[85%] gap-4">
+              <button
+                class="bg-green-600 text-white p-2 rounded-xl text-semibold"
+              >
+                Return
+              </button>
+              <button class="bg-sky-600 text-white p-2 rounded-xl text-semibold">
+                Update
+              </button>
+            </div>
+          </form>
+          <form
+            class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 text-gray-700 text-base hidden"
+            id="general_2"
+          >
+            <div>
+              <label class="block font-semibold mb-2" for="firstName"
+                >First Name <span class="text-red-600">*</span></label
+              >
+              <input
+                class="w-full border border-gray-300 rounded-md px-4 py-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#3cb371]"
+                id="firstName"
+                type="text"
+                value="John"
+              />
+            </div>
+            <div>
+              <label class="block font-semibold mb-2" for="patientStatus"
+                >Patient Status</label
+              >
+              <input
+                class="w-full border border-gray-300 rounded-md px-4 py-3 text-gray-700 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[#3cb371]"
+                id="patientStatus"
+                type="text"
+                value="Married"
+              />
+            </div>
+            <div>
+              <label class="block mb-2" for="middleName">Middle Name</label>
+              <input
+                class="w-full border border-gray-300 rounded-md px-4 py-3 text-gray-700 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[#3cb371]"
+                id="middleName"
+                type="text"
+                value=""
+              />
+            </div>
+            <div>
+              <label class="block mb-2" for="externalPatientId"
+                >External Patient Id</label
+              >
+              <input
+                class="w-full border border-gray-300 rounded-md px-4 py-3 text-gray-700 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[#3cb371]"
+                id="externalPatientId"
+                type="text"
+              />
+            </div>
+            <div>
+              <label class="block font-semibold mb-2" for="lastName"
+                >Last Name <span class="text-red-600">*</span></label
+              >
+              <input
+                class="w-full border border-gray-300 rounded-md px-4 py-3 text-gray-700 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[#3cb371]"
+                id="lastName"
+                type="text"
+                value="Doe"
+              />
+            </div>
+            <div>
+              <label class="block mb-2" for="bloodType">Blood Type</label>
+              <select
+                class="w-full border border-gray-300 rounded-md px-4 py-3 text-gray-700 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[#3cb371]"
+                id="bloodType"
+              >
+                <option>A+</option>
+                <option>A-</option>
+                <option>B+</option>
+                <option>B-</option>
+                <option>AB+</option>
+                <option>AB-</option>
+                <option>O+</option>
+                <option>O-</option>
+              </select>
+            </div>
+            <div>
+              <label class="block mb-2" for="sex">Sex</label>
+              <input
+                class="w-full border border-gray-300 rounded-md px-4 py-3 text-gray-700 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[#3cb371]"
+                id="sex"
+                type="text"
+                value="Male"
+              />
+            </div>
+            <div>
+              <label class="block mb-2" for="clinicSite">Clinic Site</label>
+              <input
+                class="w-full border border-gray-300 rounded-md px-4 py-3 text-gray-700 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[#3cb371]"
+                id="clinicSite"
+                type="text"
+              />
+            </div>
+          </form>
+        </section>
+      </main>
+    <script>
+      function general() {
+        const history = document.getElementById("history");
+        const general = document.getElementById("general");
+
+        const nav_his = document.getElementById("nav_his");
+        const nav_general = document.getElementById("nav_general");
+
+        nav_his.className =
+          "pb-3 border-b-2 border-transparent hover:border-gray-400 transition-colors duration-200";
+        nav_general.className = "pb-3 border-b-2 border-gray-700 font-semibold";
+
+        history.classList.add("hidden");
+        general.classList.remove("hidden");
+      }
+      function general_2() {
+        const history = document.getElementById("history_2");
+        const general = document.getElementById("general_2");
+
+        const nav_his = document.getElementById("nav_his_2");
+        const nav_general = document.getElementById("nav_general_2");
+
+        nav_his.className =
+          "pb-3 border-b-2 border-transparent hover:border-gray-400 transition-colors duration-200";
+        nav_general.className = "pb-3 border-b-2 border-gray-700 font-semibold";
+
+        history.classList.add("hidden");
+        general.classList.remove("hidden");
+      }
+
+
+      function edit_patient() {
+        const main_content = document.getElementById("main_content");
+        const list = document.getElementById("list");
+        const edit = document.getElementById("edit");
+
+        edit.className="p-2 rounded-full bg-sky-900 text-white transition"
+
+        list.classList.add("hidden");
+        main_content.classList.remove("hidden");
+      }
+      function edit_patient_2() {
+        const sub_content = document.getElementById("sub_content");
+        const list = document.getElementById("list");
+        const edit = document.getElementById("edit_2");
+
+        edit.className="p-2 rounded-full bg-sky-900 text-white transition"
+
+        list.classList.add("hidden");
+        sub_content.classList.remove("hidden");
+      }
+    </script>
+  </body>
+</html>

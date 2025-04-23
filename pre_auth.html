@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HealthCare Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="./ins_logo.jpg" type="image/jpg" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+      }
+    </style>
+  </head>
+
+  <body class="bg-gray-100 min-h-screen">
+    <!-- Navbar -->
+    <header class="bg-sky-900 shadow-md fixed w-full z-50 top-0">
+      <div
+        class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4"
+      >
+        <!-- Logo Section -->
+        <div class="flex items-center space-x-3">
+          <img
+            src="./ins_logo.jpg"
+            alt="Logo"
+            class="w-12 h-12 rounded-full shadow-lg"
+          />
+          <h1 class="text-2xl font-extrabold tracking-wide text-white">
+            HealthCare<span class="text-white font-light"> Insurance</span>
+          </h1>
+        </div>
+
+        <!-- Search & Icons -->
+        <div class="flex items-center space-x-5">
+          <!-- Search Bar -->
+          <div class="relative">
+            <input
+              type="text"
+              placeholder="Search..."
+              class="pl-10 pr-4 py-2 w-64 rounded-full shadow-md border border-gray-200 focus:outline-none focus:ring-2 focus:ring-white text-gray-700 placeholder-gray-400"
+              id="searchbar"
+            />
+            <button
+              class="fa fa-search text-gray-500 ml-2 text-white hover:text-xl"
+              id="search"
+              onclick="doc()"
+            ></button>
+            <div
+              class="absolute inset-y-0 left-3 flex items-center pointer-events-none"
+            >
+              <svg
+                class="h-5 w-5 text-gray-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1116.65 16.65z"
+                />
+              </svg>
+            </div>
+          </div>
+
+          <!-- Profile Avatar -->
+          <button
+            class="rounded-full border-2 border-white hover:ring-2 hover:ring-white transition duration-300"
+            aria-label="User Profile"
+          >
+            <img
+              src="https://www.w3schools.com/w3images/avatar2.png"
+              alt="User"
+              class="w-10 h-10 rounded-full object-cover"
+            />
+          </button>
+
+          <!-- Settings Icon -->
+          <button
+            class="p-2 rounded-full bg-white hover:bg-gray-100 transition duration-200 shadow-sm"
+            aria-label="Settings"
+          >
+            <svg
+              class="h-6 w-6 text-gray-600"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 8v4l3 3m6 1.5V18a2 2 0 01-2 2H6a2 2 0 01-2-2v-.5"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Sidebar + Content -->
+    <div class="flex pt-20">
+      <!-- Sidebar -->
+      <aside
+        class="w-64 h-screen bg-white shadow-xl fixed top-0 left-0 z-40 border-r border-gray-200"
+      >
+        <div class="flex items-center px-6 py-5 border-b border-gray-100">
+          <img src="./ins_logo.jpg" class="w-10 h-10 rounded-full" alt="Logo" />
+          <span class="ml-3 text-lg font-bold text-indigo-700">HealthCare</span>
+        </div>
+
+        <nav class="px-6 py-4 flex flex-col space-y-3">
+          <a
+            href="#"
+            class="flex items-center px-3 py-2 text-indigo-700 bg-indigo-50 rounded-lg font-semibold hover:bg-indigo-100 transition"
+            id="dashboard"
+          >
+            <svg
+              class="w-5 h-5 mr-3 text-gray-500"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 12h18M3 6h18M3 18h18"
+              />
+            </svg>
+            Dashboard
+          </a>
+
+          <a
+            href="#"
+            class="flex items-center px-3 py-2 text-gray-700 hover:text-indigo-600 hover:bg-gray-100 rounded-lg transition"
+          >
+            <svg
+              class="w-5 h-5 mr-3 text-gray-500"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5.121 17.804A6.978 6.978 0 0112 15a6.978 6.978 0 016.879 2.804M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+              />
+            </svg>
+            My Profile
+          </a>
+          <a
+            href="#"
+            class="flex items-center px-3 py-2 text-gray-700 hover:text-indigo-600 hover:bg-gray-100 rounded-lg transition"
+            onclick="prior()"
+            id="auth"
+          >
+            <svg
+              class="w-5 h-5 mr-3 text-gray-500"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 12h6m2 0a2 2 0 012 2v6a2 2 0 01-2 2H7a2 2 0 01-2-2v-6a2 2 0 012-2h10zM12 8V4m0 0L8 8m4-4l4 4"
+              />
+            </svg>
+            Prior Auth
+          </a>
+
+          <a
+            href="#"
+            class="flex items-center px-3 py-2 text-gray-700 hover:text-indigo-600 hover:bg-gray-100 rounded-lg transition"
+          >
+            <svg
+              class="w-5 h-5 mr-3 text-gray-500"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 10h16M4 14h10"
+              />
+            </svg>
+            Insurance Plans
+          </a>
+
+          <a
+            href="#"
+            class="flex items-center px-3 py-2 text-gray-700 hover:text-indigo-600 hover:bg-gray-100 rounded-lg transition"
+          >
+            <svg
+              class="w-5 h-5 mr-3 text-gray-500"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 17v-6h13v6M5 21h14a2 2 0 002-2v-7H3v7a2 2 0 002 2z"
+              />
+            </svg>
+            Claims
+          </a>
+
+          <a
+            href="#"
+            class="flex items-center px-3 py-2 text-gray-700 hover:text-indigo-600 hover:bg-gray-100 rounded-lg transition"
+          >
+            <svg
+              class="w-5 h-5 mr-3 text-gray-500"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 14l2-2 4 4M7 11a5 5 0 015-5h.5A2.5 2.5 0 0115 8.5V9a5 5 0 11-10 0v-.5a2.5 2.5 0 012.5-2.5H9"
+              />
+            </svg>
+            Billing
+          </a>
+
+          <a
+            href="#"
+            class="flex items-center px-3 py-2 text-gray-700 hover:text-indigo-600 hover:bg-gray-100 rounded-lg transition"
+          >
+            <svg
+              class="w-5 h-5 mr-3 text-gray-500"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 17v-2a4 4 0 014-4h4a4 4 0 014 4v2"
+              />
+            </svg>
+            Reports
+          </a>
+
+          <a
+            href="#"
+            class="flex items-center px-3 py-2 text-gray-700 hover:text-indigo-600 hover:bg-gray-100 rounded-lg transition"
+          >
+            <svg
+              class="w-5 h-5 mr-3 text-gray-500"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M18.364 5.636a9 9 0 11-12.728 0M12 3v9"
+              />
+            </svg>
+            Support
+          </a>
+
+          <a
+            href="#"
+            class="flex items-center px-3 py-2 text-gray-700 hover:text-indigo-600 hover:bg-gray-100 rounded-lg transition"
+          >
+            <svg
+              class="w-5 h-5 mr-3 text-gray-500"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 6v6l4 2"
+              />
+            </svg>
+            Settings
+          </a>
+        </nav>
+      </aside>
+
+      <!-- Main Dashboard Content -->
+      <main class="flex-1 ml-64 p-6" id="dash">
+        <h1 class="text-2xl font-bold text-gray-700 mb-6">
+          Dashboard Overview
+        </h1>
+
+        <!-- Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+          <div class="bg-white p-4 shadow rounded-xl">
+            <h2 class="text-lg font-semibold">Active Plans</h2>
+            <p class="text-2xl text-blue-600 font-bold">3</p>
+          </div>
+          <div class="bg-white p-4 shadow rounded-xl">
+            <h2 class="text-lg font-semibold">Pending Claims</h2>
+            <p class="text-2xl text-yellow-600 font-bold">5</p>
+          </div>
+          <div class="bg-white p-4 shadow rounded-xl">
+            <h2 class="text-lg font-semibold">Total Members</h2>
+            <p class="text-2xl text-green-600 font-bold">250</p>
+          </div>
+          <div class="bg-white p-4 shadow rounded-xl">
+            <h2 class="text-lg font-semibold">Monthly Cost</h2>
+            <p class="text-2xl text-red-600 font-bold">$3,200</p>
+          </div>
+        </div>
+
+        <!-- Recent Claims Table -->
+        <div class="bg-white p-6 shadow rounded-xl">
+          <h2 class="text-xl font-semibold mb-4">Recent Claims</h2>
+          <div class="overflow-x-auto">
+            <table class="min-w-full table-auto text-sm">
+              <thead>
+                <tr class="bg-gray-100 text-gray-600">
+                  <th class="px-4 py-2 text-left">Claim ID</th>
+                  <th class="px-4 py-2 text-left">Patient</th>
+                  <th class="px-4 py-2 text-left">Amount</th>
+                  <th class="px-4 py-2 text-left">Status</th>
+                  <th class="px-4 py-2 text-left">Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="px-4 py-2">#C1021</td>
+                  <td class="px-4 py-2">Alice Johnson</td>
+                  <td class="px-4 py-2">$1,200</td>
+                  <td class="px-4 py-2 text-yellow-600">Pending</td>
+                  <td class="px-4 py-2">2025-04-20</td>
+                </tr>
+                <tr class="bg-gray-50">
+                  <td class="px-4 py-2">#C1020</td>
+                  <td class="px-4 py-2">Mark Smith</td>
+                  <td class="px-4 py-2">$850</td>
+                  <td class="px-4 py-2 text-green-600">Approved</td>
+                  <td class="px-4 py-2">2025-04-18</td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-2">#C1019</td>
+                  <td class="px-4 py-2">Sarah White</td>
+                  <td class="px-4 py-2">$980</td>
+                  <td class="px-4 py-2 text-red-600">Rejected</td>
+                  <td class="px-4 py-2">2025-04-15</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+      <div class="hidden ml-[20%] mt-[2%] w-full" id="prior">
+        <!-- Page Heading -->
+        <div class="">
+          <h1 class="text-3xl font-bold text-blue-900">Prior Authorization</h1>
+          <p class="text-gray-600 mt-2">
+            Submit and view prior authorization requests easily.
+          </p>
+        </div>
+
+        <!-- Form and List -->
+        <div class="grid grid-cols-1 grid-cols-2 gap-6">
+          <!-- Request Form -->
+          <div class="bg-white p-6 rounded-xl shadow-md border border-gray-200">
+            <h2 class="text-xl font-semibold mb-4 text-indigo-700">
+              New Authorization Request
+            </h2>
+            <form class="space-y-4">
+              <div>
+                <label class="block text-sm font-medium">Patient Name</label>
+                <input
+                  type="text"
+                  class="mt-1 w-full border border-gray-300 p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400"
+                  placeholder="John Doe"
+                />
+              </div>
+
+              <div>
+                <label class="block text-sm font-medium"
+                  >Service Requested</label
+                >
+                <input
+                  type="text"
+                  class="mt-1 w-full border border-gray-300 p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400"
+                  placeholder="MRI Scan"
+                />
+              </div>
+
+              <div>
+                <label class="block text-sm font-medium">Physician Name</label>
+                <input
+                  type="text"
+                  class="mt-1 w-full border border-gray-300 p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400"
+                  placeholder="Dr. Smith"
+                />
+              </div>
+
+              <div>
+                <label class="block text-sm font-medium"
+                  >Authorization Type</label
+                >
+                <select
+                  class="mt-1 w-full border border-gray-300 p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400"
+                >
+                  <option>Urgent</option>
+                  <option>Routine</option>
+                </select>
+              </div>
+
+              <button
+                type="submit"
+                class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition"
+              >
+                Submit Request
+              </button>
+            </form>
+          </div>
+
+          <!-- Existing Requests -->
+          <div class="bg-white p-6 rounded-xl shadow-md border border-gray-200">
+            <h2 class="text-xl font-semibold mb-4 text-indigo-700">
+              Recent Requests
+            </h2>
+
+            <ul class="space-y-4">
+              <li
+                class="bg-gray-50 p-4 rounded-lg flex justify-between items-center"
+              >
+                <div>
+                  <h3 class="font-medium">John Doe - MRI Scan</h3>
+                  <p class="text-sm text-gray-500">
+                    Requested by Dr. Smith · Urgent
+                  </p>
+                </div>
+                <span class="text-sm text-green-600 font-semibold"
+                  >Approved</span
+                >
+              </li>
+              <li
+                class="bg-gray-50 p-4 rounded-lg flex justify-between items-center"
+              >
+                <div>
+                  <h3 class="font-medium">Sarah Lee - CT Scan</h3>
+                  <p class="text-sm text-gray-500">
+                    Requested by Dr. Adams · Routine
+                  </p>
+                </div>
+                <span class="text-sm text-yellow-600 font-semibold"
+                  >Pending</span
+                >
+              </li>
+              <li
+                class="bg-gray-50 p-4 rounded-lg flex justify-between items-center"
+              >
+                <div>
+                  <h3 class="font-medium">David Kim - Surgery</h3>
+                  <p class="text-sm text-gray-500">
+                    Requested by Dr. Patel · Urgent
+                  </p>
+                </div>
+                <span class="text-sm text-red-600 font-semibold">Denied</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="bg-white p-6 rounded-xl shadow-lg max-w-6xl w-[75%] mx-auto mt-10 ml-[20%] hidden"
+        id="doc"
+      >
+        <h2 class="text-2xl font-semibold text-gray-800 mb-4 text-center">
+          Medications Requiring Prior Authorization for Medical Necessity
+        </h2>
+        <p class="text-gray-600 mb-2 text-center">
+          Below is a list of medicines by drug class that will not be covered
+          without prior authorization for medical necessity.
+        </p>
+        <p class="text-gray-600 mb-6 text-center">
+          If you are currently using one of these drugs, consult your doctor for
+          generic or brand formulary alternatives.
+        </p>
+
+        <div
+          class="overflow-x-auto shadow-lg overflow-y-auto h-[50vh] rounded-2xl"
+          style="scrollbar-width: thin; scrollbar-color: #9ca3af #f3f4f6"
+        >
+          <table
+            class="min-w-full border border-gray-300 rounded-md overflow-hidden min-h-[50vh]"
+          >
+            <thead class="bg-sky-500 text-white">
+              <tr class="text-left">
+                <th class="py-3 px-4 font-semibold">Category / Drug Class</th>
+                <th class="py-3 px-4 font-semibold">
+                  Drugs Requiring Prior Authorization
+                </th>
+                <th class="py-3 px-4 font-semibold">
+                  Formulary Options <br /><span class="text-sm font-normal"
+                    >(may require prior authorization)</span
+                  >
+                </th>
+              </tr>
+            </thead>
+            <tbody class="bg-white text-gray-700">
+              <tr class="border-t border-gray-200">
+                <td class="py-3 px-4">Acromegaly</td>
+                <td class="py-3 px-4">SANDOSTATIN LAR</td>
+                <td class="py-3 px-4">SOMATULINE DEPOT, SOMAVERT</td>
+              </tr>
+              <tr class="bg-gray-50 border-t border-gray-200">
+                <td class="py-3 px-4">Allergies – Antihistamines</td>
+                <td class="py-3 px-4">CARBINOXAMINE TABLET 6 MG</td>
+                <td class="py-3 px-4">Levocetirizine</td>
+              </tr>
+              <tr class="border-t border-gray-200">
+                <td class="py-3 px-4">
+                  Allergies – Nasal Steroids / Combinations
+                </td>
+                <td class="py-3 px-4">
+                  BECONASE AQ<br />OMNARIS<br />QNASL<br />ZETONNA
+                </td>
+                <td class="py-3 px-4">
+                  flunisolide spray, fluticasone spray, mometasone spray,
+                  DYMSITA
+                </td>
+              </tr>
+              <tr class="bg-gray-50 border-t border-gray-200">
+                <td class="py-3 px-4">Anticonvulsants</td>
+                <td class="py-3 px-4">
+                  LAMICTAL<br />LAMICTAL ODT<br />LAMICTAL XR<br />ZONEGRAN
+                </td>
+                <td class="py-3 px-4">
+                  carbamazepine, lamotrigine, oxcarbazepine, levetiracetam,
+                  divalproex, phenytoin, topiramate, zonisamide, VIMPAT
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="w-full mt-10 flex justify-between">
+            <button
+            class=" text-white rounded-2xl px-4 py-2  hover:ring-blue-200"
+            onclick="pop()"
+            id="pop"
+          >
+            open
+          </button>
+          <button
+            class="bg-sky-700 text-white rounded-2xl px-4 py-2  hover:bg-sky-900 hover:ring-blue-200 mr-10"
+            onclick="data()"
+            id="next"
+          >
+            Next
+          </button>
+        </div>
+        <div
+          id="blur-overlay"
+          class="fixed inset-0 bg-black bg-opacity-40 hidden z-40 backdrop-blur-sm"
+        ></div>
+        <div
+          id="success-popup"
+          class="fixed inset-0 z-50 flex items-center justify-center hidden"
+        >
+          <div
+            class="bg-white border border-gray-400 rounded-lg shadow-xl p-4 text-center w-[300px]"
+          >
+            <h3 class="text-[14px] font-bold text-red-600">
+             Prior Authorization Not Required
+            </h3>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="w-[70%] ml-[25%] p-8 bg-white rounded-2xl shadow-xl space-y-10 hidden"
+        id="data"
+      >
+        <!-- Header -->
+        <header class="text-center space-y-2">
+          <h1 class="text-3xl font-bold">
+            Prescription Drug Prior Authorization Form
+          </h1>
+          <p class="text-sm text-gray-600">
+            Please fill out all applicable sections. Attach any important
+            documentation for review.
+          </p>
+        </header>
+
+        <!-- Patient Information -->
+        <section class="space-y-4">
+          <h2 class="text-xl font-semibold border-b pb-2">
+            Patient Information
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div>
+              <label for="firstName">First Name</label>
+              <input
+                id="firstName"
+                type="text"
+                placeholder="First Name"
+                class="input border border-sky-900 w-full p-2 rounded"
+              />
+            </div>
+            <div>
+              <label for="middleInitial">Middle Initial</label>
+              <input
+                id="middleInitial"
+                type="text"
+                placeholder="Middle Initial"
+                class="input border border-sky-900 w-full p-2 rounded"
+              />
+            </div>
+            <div>
+              <label for="lastName">Last Name</label>
+              <input
+                id="lastName"
+                type="text"
+                placeholder="Last Name"
+                class="input border border-sky-900 w-full p-2 rounded"
+              />
+            </div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label for="phoneNumber">Phone Number</label>
+              <input
+                id="phoneNumber"
+                type="text"
+                placeholder="Phone Number"
+                class="input border border-sky-900 w-full p-2 rounded"
+              />
+            </div>
+            <div>
+              <label for="dob">Date of Birth</label>
+              <input
+                id="dob"
+                type="text"
+                placeholder="Date of Birth"
+                class="input border border-sky-900 w-full p-2 rounded"
+              />
+            </div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <div class="md:col-span-2">
+              <label for="address">Address</label>
+              <input
+                id="address"
+                type="text"
+                placeholder="Address"
+                class="input border border-sky-900 w-full p-2 rounded"
+              />
+            </div>
+            <div>
+              <label for="city">City</label>
+              <input
+                id="city"
+                type="text"
+                placeholder="City"
+                class="input border border-sky-900 w-full p-2 rounded"
+              />
+            </div>
+            <div>
+              <label for="state">State</label>
+              <input
+                id="state"
+                type="text"
+                placeholder="State"
+                class="input border border-sky-900 w-full p-2 rounded"
+              />
+            </div>
+            <div>
+              <label for="zipCode">Zip Code</label>
+              <input
+                id="zipCode"
+                type="text"
+                placeholder="Zip Code"
+                class="input border border-sky-900 w-full p-2 rounded"
+              />
+            </div>
+          </div>
+          <div class="flex items-center gap-4">
+            <label class="flex items-center gap-2"
+              ><input id="genderM" type="radio" name="gender" /> M</label
+            >
+            <label class="flex items-center gap-2"
+              ><input id="genderF" type="radio" name="gender" /> F</label
+            >
+          </div>
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <label for="height">Height (in.)</label>
+              <input
+                id="height"
+                type="text"
+                placeholder="Height (in.)"
+                class="input border border-sky-900 w-full p-2 rounded"
+              />
+            </div>
+            <div>
+              <label for="weight">Weight (lbs)</label>
+              <input
+                id="weight"
+                type="text"
+                placeholder="Weight (lbs)"
+                class="input border border-sky-900 w-full p-2 rounded"
+              />
+            </div>
+          </div>
+          <div>
+            <label for="allergies">Allergies</label>
+            <input
+              id="allergies"
+              type="text"
+              placeholder="Allergies"
+              class="input border border-sky-900 w-full p-2 rounded"
+            />
+          </div>
+        </section>
+
+        <!-- Insurance & Prescriber Information -->
+        <section class="space-y-6">
+          <h2 class="text-xl font-semibold border-b pb-2">
+            Insurance & Prescriber Information
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label for="primaryInsurance">Primary Insurance</label>
+              <input
+                id="primaryInsurance"
+                type="text"
+                placeholder="Primary Insurance"
+                class="input border border-sky-900 w-full p-2 rounded"
+              />
+            </div>
+            <div>
+              <label for="patientId">Patient ID</label>
+              <input
+                id="patientId"
+                type="text"
+                placeholder="Patient ID"
+                class="input border border-sky-900 w-full p-2 rounded"
+              />
+            </div>
+          </div>
+          <div class="grid grid-cols-3 gap-4">
+            <div>
+              <label for="prescriberFirst">Prescriber First Name</label>
+              <input
+                id="prescriberFirst"
+                type="text"
+                placeholder="Prescriber First Name"
+                class="input border border-sky-900 w-full p-2 rounded"
+              />
+            </div>
+            <div>
+              <label for="prescriberLast">Last Name</label>
+              <input
+                id="prescriberLast"
+                type="text"
+                placeholder="Last Name"
+                class="input border border-sky-900 w-full p-2 rounded"
+              />
+            </div>
+            <div>
+              <label for="specialty">Specialty</label>
+              <input
+                id="specialty"
+                type="text"
+                placeholder="Specialty"
+                class="input border border-sky-900 w-full p-2 rounded"
+              />
+            </div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <div class="md:col-span-2">
+              <label for="prescriberAddress">Address</label>
+              <input
+                id="prescriberAddress"
+                type="text"
+                placeholder="Address"
+                class="input border border-sky-900 w-full p-2 rounded"
+              />
+            </div>
+            <div>
+              <label for="prescriberCity">City</label>
+              <input
+                id="prescriberCity"
+                type="text"
+                placeholder="City"
+                class="input border border-sky-900 w-full p-2 rounded"
+              />
+            </div>
+            <div>
+              <label for="prescriberState">State</label>
+              <input
+                id="prescriberState"
+                type="text"
+                placeholder="State"
+                class="input border border-sky-900 w-full p-2 rounded"
+              />
+            </div>
+            <div>
+              <label for="prescriberZip">Zip Code</label>
+              <input
+                id="prescriberZip"
+                type="text"
+                placeholder="Zip Code"
+                class="input border border-sky-900 w-full p-2 rounded"
+              />
+            </div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label for="officePhone">Office Contact Phone</label>
+              <input
+                id="officePhone"
+                type="text"
+                placeholder="Office Contact Phone"
+                class="input border border-sky-900 w-full p-2 rounded"
+              />
+            </div>
+            <div>
+              <label for="prescriberPhone">Prescriber Phone</label>
+              <input
+                id="prescriberPhone"
+                type="text"
+                placeholder="Prescriber Phone"
+                class="input border border-sky-900 w-full p-2 rounded"
+              />
+            </div>
+          </div>
+          <div>
+            <label for="email">Email Address</label>
+            <input
+              id="email"
+              type="text"
+              placeholder="Email Address"
+              class="input border border-sky-900 w-full p-2 rounded"
+            />
+          </div>
+        </section>
+
+        <!-- Medication Info -->
+        <section class="space-y-4">
+          <h2 class="text-xl font-semibold border-b pb-2">
+            Medication / Dispensing Information
+          </h2>
+          <div>
+            <label for="medicationName">Medication Name</label>
+            <input
+              id="medicationName"
+              type="text"
+              placeholder="Medication Name"
+              class="input border border-sky-900 w-full p-2 rounded"
+            />
+          </div>
+          <div class="flex items-center gap-4">
+            <label class="flex items-center gap-2"
+              ><input id="newTherapy" type="checkbox"  /> New
+              Therapy</label
+            >
+            <label class="flex items-center gap-2"
+              ><input id="renewal" type="checkbox" /> Renewal</label
+            >
+          </div>
+          <div>
+            <label for="therapyDuration">Duration of Therapy</label>
+            <input
+              id="therapyDuration"
+              type="text"
+              placeholder="e.g., 14-02-2020 to 18-08-2020"
+              class="input border border-sky-900 w-full p-2 rounded"
+            />
+          </div>
+          <div class="grid grid-cols-2 gap-4">
+            <label class="flex items-center gap-2"
+              ><input id="paidUnderInsurance" type="checkbox" /> Paid Under
+              Insurance</label
+            >
+            <label class="flex items-center gap-2"
+              ><input id="paidOther" type="checkbox"  /> Other:
+              <input
+                id="otherPayment"
+                type="text"
+                value="Cash"
+                class="input border border-sky-900 p-1 rounded"
+            /></label>
+          </div>
+          <div class="grid grid-cols-4 gap-4">
+            <div>
+              <label for="doseStrength">Dose/Strength</label
+              ><input
+                id="doseStrength"
+                type="text"
+                class="input border border-sky-900 w-full p-2 rounded"
+                placeholder="Dose/Strength"
+              />
+            </div>
+            <div>
+              <label for="frequency">Frequency</label
+              ><input
+                id="frequency"
+                type="text"
+                class="input border border-sky-900 w-full p-2 rounded"
+                placeholder="Frequency"
+              />
+            </div>
+            <div>
+              <label for="refills">Refills</label
+              ><input
+                id="refills"
+                type="text"
+                class="input border border-sky-900 w-full p-2 rounded"
+                placeholder="Refills"
+              />
+            </div>
+            <div>
+              <label for="quantity">Quantity</label
+              ><input
+                id="quantity"
+                type="text"
+                class="input border border-sky-900 w-full p-2 rounded"
+                placeholder="Quantity"
+              />
+            </div>
+          </div>
+          <div class="grid grid-cols-3 gap-4">
+            <label class="flex items-center gap-2"
+              ><input id="routeOral" type="checkbox" /> Oral</label
+            >
+            <label class="flex items-center gap-2"
+              ><input id="routeInjection" type="checkbox" /> Injection</label
+            >
+            <label class="flex items-center gap-2"
+              ><input id="routeIV" type="checkbox"  /> IV</label
+            >
+          </div>
+        </section>
+
+        <!-- Previous Medication Trial -->
+        <section class="space-y-4">
+          <h2 class="text-xl font-semibold border-b pb-2">
+            Previous Medications
+          </h2>
+          <div class="grid grid-cols-3 gap-4">
+            <div>
+              <label for="prevMedication">Medication/Therapy</label
+              ><input
+                id="prevMedication"
+                type="text"
+                class="input border border-sky-900 w-full p-2 rounded"
+                value="ZETONNA 100 mg"
+              />
+            </div>
+            <div>
+              <label for="prevDuration">Duration</label
+              ><input
+                id="prevDuration"
+                type="text"
+                class="input border border-sky-900 w-full p-2 rounded"
+                value="14-02-2020 to 18-08-2020"
+              />
+            </div>
+            <div>
+              <label for="prevResponse">Response</label
+              ><input
+                id="prevResponse"
+                type="text"
+                class="input border border-sky-900 w-full p-2 rounded"
+                value="-"
+              />
+            </div>
+          </div>
+        </section>
+
+        <!-- Diagnoses -->
+        <section class="space-y-4">
+          <h2 class="text-xl font-semibold border-b pb-2">Diagnoses</h2>
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <label for="diagnosisDesc">Diagnosis Description</label
+              ><input
+                id="diagnosisDesc"
+                type="text"
+                class="input border border-sky-900 w-full p-2 rounded"
+                value="swallowing, sneezing and runny nose"
+              />
+            </div>
+            <div>
+              <label for="icdCode">ICD-9 / ICD-10</label
+              ><input
+                id="icdCode"
+                type="text"
+                class="input border border-sky-900 w-full p-2 rounded"
+              />
+            </div>
+          </div>
+        </section>
+        <button
+          class="bg-slate-600 px-4 py-2 text-white rounded-lg ml-[45%] hover:bg-slate-900"
+          onclick="popup()"
+          id="submit"
+        >
+          Submit
+        </button>
+
+        <div
+          id="blur-overlay_2"
+          class="fixed inset-0 bg-black bg-opacity-40 hidden z-40 backdrop-blur-sm"
+        ></div>
+        <div
+          id="success-popup_2"
+          class="fixed inset-0 z-50 flex items-center justify-center hidden"
+        >
+          <div
+            class="bg-white border border-gray-400 rounded-lg shadow-xl p-4 text-center w-[300px]"
+          >
+            <h3 class="text-[14px] font-bold text-green-600">
+              ✅ Successfully Completed
+            </h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function prior() {
+        const auth = document.getElementById("auth");
+        const dashboard = document.getElementById("dashboard");
+        const prior = document.getElementById("prior");
+        const dash = document.getElementById("dash");
+
+        dashboard.className =
+          "flex items-center px-3 py-2 text-gray-700 hover:text-indigo-600 hover:bg-gray-100 rounded-lg transition";
+        auth.className =
+          "flex items-center px-3 py-2 text-indigo-700 bg-indigo-50 rounded-lg font-semibold hover:bg-indigo-100 transition";
+
+        dash.classList.add("hidden");
+        prior.classList.remove("hidden");
+      }
+      function doc() {
+        const doc = document.getElementById("doc");
+        const prior = document.getElementById("prior");
+
+        prior.classList.add("hidden");
+        doc.classList.remove("hidden");
+      }
+
+      function data() {
+        const doc = document.getElementById("doc");
+        const data = document.getElementById("data");
+
+        doc.classList.add("hidden");
+        data.classList.remove("hidden");
+      }
+
+      function popup() {
+        // Show popup and overlay after 3 seconds
+        setTimeout(function () {
+          document.getElementById("success-popup_2").classList.remove("hidden");
+          document.getElementById("blur-overlay_2").classList.remove("hidden");
+
+          // Hide popup and overlay after another 3 seconds
+          setTimeout(function () {
+            document.getElementById("success-popup_2").classList.add("hidden");
+            document.getElementById("blur-overlay_2").classList.add("hidden");
+          }, 3000); // This is 3 seconds after showing
+        }); // This is the initial delay
+      }
+    
+      function pop() {
+        // Show popup and overlay after 3 seconds
+        setTimeout(function () {
+          document.getElementById("success-popup").classList.remove("hidden");
+          document.getElementById("blur-overlay").classList.remove("hidden");
+
+          // Hide popup and overlay after another 3 seconds
+          setTimeout(function () {
+            document.getElementById("success-popup").classList.add("hidden");
+            document.getElementById("blur-overlay").classList.add("hidden");
+          }, 3000); // This is 3 seconds after showing
+        }); // This is the initial delay
+      }
+   
+    </script>
+  </body>
+</html>
+
